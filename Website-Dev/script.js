@@ -19,7 +19,7 @@ function falling() {
         progressBar.value += 100 * ratio;
         document.body.removeChild(c);
     })
-    c.addEventListener("touch", function() {
+    c.addEventListener("touchstart", function() {
         progressBar.value += 100 * ratio;
         document.body.removeChild(c);
     })
@@ -40,6 +40,7 @@ function ahdhdMode() {
         progressBar.value = 0;
         var level = 0;
         ratio = 0.2;
+        document.querySelector('level').innerHTML = level;
         interval = setInterval(function(){
             falling();
             if(progressBar.value == 100) {
