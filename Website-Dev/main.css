@@ -140,7 +140,7 @@ h3 {
     text-align: left;
 }
 
-/* LOGO AND HEADER */
+/* HEADER */
 
 .bar {
     display: flex;
@@ -150,15 +150,6 @@ h3 {
     background-color: #1a202c;
     color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.logo a:hover {
-    color: rgb(120, 120, 120);
 }
 
 .social-links {
@@ -174,4 +165,73 @@ h3 {
 
 .social-links a:hover {
     color: #4299e1;
+}
+
+/* ADHD MODE */
+
+
+score {
+    display: none;
+    text-align: center;
+    flex-direction: column;
+}
+
+#adhdButton {
+    padding: 8px 16px;
+    background-color: #585858;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#adhdButton:hover {
+    background-color: #7f7f7f;
+}
+
+container {
+    display: flex;
+    justify-content: center;
+    background-color: #e9e9e9;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px #c2c2c2;
+    margin: auto;
+    width: 50%;
+}
+
+progress {
+    width: 96%;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.circle {
+    position: absolute;
+    top: 0;
+    aspect-ratio: 1/1;
+    width: 40px;
+    height: 40px;
+    background: #d88303;
+    border-radius: 50%;
+    animation: animate 10s linear infinite;
+}
+
+.circle:hover {
+    background-color: #ffa73b;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0vh) scale(0);
+        opacity: 1;
+    }
+    10% {
+        transform: translateY(0vh) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+    }
 }

@@ -6,8 +6,8 @@
 </head>
 <body>
     <header class="bar">
-        <!-- Logo -->
-        <div class="logo" href="cleomenenelli.us" target="_blank" rel="noopener noreferrer">Cleomene Nelli</div>
+        <!-- ADHD Button -->
+        <button id="adhdButton">Activate ADHD Mode</button>
         
         <!-- Social Media Links -->
         <nav class="social-links">
@@ -24,6 +24,13 @@
     </header>
 
     <header>
+        <score id="score">
+            <level>0</level>
+            <container id="container">
+                <progress id="progressBar" value="20" max="100"></progress>
+            </container>
+        </score>
+
         <img src="avatar.jpg"
         width="150"
         height="150">
@@ -48,7 +55,7 @@
         <div class="project-card">
             <div class="project-info">
                 <h3>Rockets v. Dinos</h3>
-                <p>A small game built with HTML and JS to help learn the intricacies of the languages</p>
+                <p>A small game built with HTML and JS to help learn each language's intricacies</p>
                 <div class="project-links">
                     <a href="game_v1.html" target="_blank" rel="noopener noreferrer" class="btn">Game V1</a>
                     <a href="game_v2.html" target="_blank" rel="noopener noreferrer" class="btn">Game V2</a>
@@ -85,4 +92,5 @@
     <a href="https://www.linkedin.com/in/cleomene-nelli/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 </footer>
 
+<script src="script.js"></script>
 </html>
