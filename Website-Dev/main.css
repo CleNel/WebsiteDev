@@ -82,7 +82,7 @@ footer a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 10px;
-    /* max-width: 1200px; */
+    /* max-width: 1200px; */ 
 }
 
 .project-card {
@@ -168,7 +168,6 @@ h3 {
 }
 
 /* ADHD MODE */
-
 
 score {
     display: none;
