@@ -1,15 +1,30 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cleomene Nelli - Portfolio</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="https://kit.fontawesome.com/0e1dc01f27.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+
+    <!-- NAV BAR -->
     <header class="bar">
-        <!-- ADHD Button -->
-        <button id="adhdButton">Activate ADHD Mode</button>
-        
-        <!-- Social Media Links -->
+
+        <div class="logo">
+            <a href="#intro">Cleomene Nelli</a>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+            <a href="#intro">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- Social + Resume -->
         <nav class="social-links">
             <a href="https://github.com/CleNel" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-github"></i>
@@ -17,72 +32,93 @@
             <a href="https://www.linkedin.com/in/cleomene-nelli/" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-linkedin"></i>
             </a>
+            <a href="resume.pdf" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-file"></i>
+            </a>
+            <button id="theme-button" class="theme-toggle">Dark Mode
+            </button>
+
         </nav>
     </header>
 
-    <header>
-        <score id="score">
-            <level>0</level>
-            <container id="container">
-                <progress id="progressBar" value="20" max="100"></progress>
-            </container>
-        </score>
 
-        <img src="avatar.jpg"
-        width="150"
-        height="150">
-        <h1>Cleomene Nelli</h1>
-        <p>Web Developer | Game Designer | Tech Enthusiast</p>
-    </header>
+    <!-- INTRODUCTION -->
+    <section id="intro "class="intro">
+        <div class="intro-left">
+            <img src="avatar.jpg" class="avatar" alt="Cleomene Nelli">
+        </div>
+        <div class="intro-right">
+            <h1 class="intro-name">Cleomene Nelli</h1>
+            <p class="intro-text">Computer Engineer | Web Developer | Tech Enthusiast</p>
+        </div>
     </section>
 
-    <h2>My Projects</h2>
 
-    <section class="projects">
-        <div class="project-card">
-            <div class="project-info">
-                <h3>Personal Website Development</h3>
-                <p>Built a personal website from scratch using HTML, CSS, AND JS</p>
-                <div class="project-links">
-                    <a href="https://github.com/CleNel/WebsiteDev" target="_blank" rel="noopener noreferrer" class="btn">Github</a>
+    <!-- PROJECTS -->
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+
+            <article class="project-card">
+                <div class="project-info">
+                    <h3>Personal Website Development</h3>
+                    <p>Built a personal website from scratch using HTML, CSS, and JavaScript.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/CleNel/WebsiteDev" target="_blank" rel="noopener noreferrer" class="btn">Github</a>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </article>
 
-        <div class="project-card">
-            <div class="project-info">
-                <h3>Rockets v. Dinos</h3>
-                <p>A small game built with HTML and JS to help learn each language's intricacies</p>
-                <div class="project-links">
-                    <a href="game_v1.html" target="_blank" rel="noopener noreferrer" class="btn">Game V1</a>
-                    <a href="game_v2.html" target="_blank" rel="noopener noreferrer" class="btn">Game V2</a>
-                    <a href="https://github.com/CleNel/Rockets_v_Dinos" target="_blank" rel="noopener noreferrer" class="btn">Github</a>
+            <article class="project-card">
+                <div class="project-info">
+                    <h3>Rockets v. Dinos</h3>
+                    <p>A small game built with HTML and JavaScript to help learn each language's intricacies.</p>
+                    <div class="project-links">
+                        <a href="game_v1.html" target="_blank" rel="noopener noreferrer" class="btn">Game V1</a>
+                        <a href="game_v2.html" target="_blank" rel="noopener noreferrer" class="btn">Game V2</a>
+                        <a href="https://github.com/CleNel/Rockets_v_Dinos" target="_blank" rel="noopener noreferrer" class="btn">Github</a>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </article>
 
-        <div class="project-card">
-            <div class="project-info">
-                <h3>CNN for Image Upsampling</h3>
-                <p>Using tensorflow and the Keras API, built a CNN that takes a 32x32 image and upsamples it to 128x128</p>
-                <!-- <div class="project-links">
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="btn">Put Link Here</a>
-                </div> -->
-            </div>
-        </div>
+            <article class="project-card">
+                <div class="project-info">
+                    <h3>CNN for Image Upsampling</h3>
+                    <p>Using TensorFlow and the Keras API, built a CNN that takes a 32×32 image and upsamples it to 128×128.</p>
+                </div>
+            </article>
 
-        <div class="project-card">
-            <div class="project-info">
-                <h3>Monster Re-Farm</h3>
-                <p>A game built in Godot that takes the pokemon you cherish and gives them a second life</p>
-                <!-- <div class="project-links">
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="btn">Put Link Here</a>
-                </div> -->
-            </div>
-        </div>
+            <article class="project-card">
+                <div class="project-info">
+                    <h3>Monster Re-Farm</h3>
+                    <p>A game built in Godot that takes the Pokémon you cherish and gives them a second life.</p>
+                </div>
+            </article>
 
+        </div>
     </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <iframe data-tally-src="https://tally.so/embed/wg2OjN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="379" frameborder="0" marginheight="0" marginwidth="0" title="Contact Me"></iframe>
+        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+    </section>
+
+    <script>
+        const themeButton = document.getElementById("theme-button");
+
+        themeButton.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+
+            // Optional: Change button text depending on mode
+            if (document.body.classList.contains("dark-mode")) {
+                themeButton.textContent = "Light Mode";
+            } else {
+                themeButton.textContent = "Dark Mode";
+            }
+        });
+    </script>
+
 </body>
-
-<script src="script.js"></script>
 </html>
