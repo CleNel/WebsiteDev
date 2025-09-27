@@ -35,8 +35,7 @@
             <a href="resume.pdf" target="_blank" rel="noopener noreferrer">
                 <i class="fa-solid fa-file"></i>
             </a>
-            <button id="theme-button" class="theme-toggle">Dark Mode
-            </button>
+            <button id="theme-button" class="theme-toggle">Dark Mode</button>
 
         </nav>
     </header>
@@ -59,43 +58,31 @@
         <h2>My Projects</h2>
         <div class="project-grid">
 
-            <article class="project-card">
+            <article class="project-card" data-project="website_project">
                 <div class="project-info">
                     <h3>Personal Website Development</h3>
-                    <p>Built a personal website from scratch using HTML, CSS, and JavaScript.</p>
+                    <p>A responsive personal portfolio website built with HTML, CSS, and JavaScript to showcase my projects and skills</p>
                     <div class="project-links">
                         <a href="https://github.com/CleNel/WebsiteDev" target="_blank" rel="noopener noreferrer" class="btn">Github</a>
                     </div>
                 </div>
             </article>
 
-            <article class="project-card">
-                <div class="project-info">
-                    <h3>Rockets v. Dinos</h3>
-                    <p>A small game built with HTML and JavaScript to help learn each language's intricacies.</p>
-                    <div class="project-links">
-                        <a href="game_v1.html" target="_blank" rel="noopener noreferrer" class="btn">Game V1</a>
-                        <a href="game_v2.html" target="_blank" rel="noopener noreferrer" class="btn">Game V2</a>
-                        <a href="https://github.com/CleNel/Rockets_v_Dinos" target="_blank" rel="noopener noreferrer" class="btn">Github</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card">
+            <article class="project-card" data-project="upsampling">
                 <div class="project-info">
                     <h3>CNN for Image Upsampling</h3>
-                    <p>Using TensorFlow and the Keras API, built a CNN that takes a 32×32 image and upsamples it to 128×128.</p>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-info">
-                    <h3>Monster Re-Farm</h3>
-                    <p>A game built in Godot that takes the Pokémon you cherish and gives them a second life.</p>
+                    <p>Using TensorFlow and the Keras API, built a CNN that takes a 32×32 image and upsamples it to 128×128</p>
+                    <img src="projects/Upsampling_Header.png" alt="Upsampling header">
                 </div>
             </article>
 
         </div>
+
+        <div id="project-detail" class="project-detail">
+            <button id="close-detail">&times;</button>
+            <div id="project-detail-content"></div>
+        </div>
+
     </section>
 
     <!-- CONTACT -->
@@ -105,20 +92,10 @@
         <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
     </section>
 
-    <script>
-        const themeButton = document.getElementById("theme-button");
-
-        themeButton.addEventListener("click", () => {
-            document.body.classList.toggle("dark-mode");
-
-            // Optional: Change button text depending on mode
-            if (document.body.classList.contains("dark-mode")) {
-                themeButton.textContent = "Light Mode";
-            } else {
-                themeButton.textContent = "Dark Mode";
-            }
-        });
-    </script>
+    <script src="scripts.js"></script>
 
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 </html>

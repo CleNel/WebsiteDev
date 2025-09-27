@@ -7,25 +7,26 @@
 
 body.dark-mode {
     --color1: #363435; /* dark background */
-    --color2: #5B5756; /* accent stays the same or change if desired */
-    --color3: #62939A; /* swap for light accent */
+    --color2: #5B5756;
+    --color3: #62939A;
     --color4: #FFF8D3; /* light text */
 }
-
-
 
 /* GENERAL */
 
 body {
     font-family: Georgia, Arial, sans-serif;
     margin: 0;
-    background-color: var(--color1); /* dark background */
+    background-color: var(--color1);
 }
 
 body::before {
     content: "";
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: url('my-durves-image.png') no-repeat center center;
     background-position: center;
     z-index: -1;
@@ -41,82 +42,82 @@ header img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin: 10px 0;
 }
 
 section {
-    background-color: var(--color2); /* light background for sections */
+    background-color: var(--color2);
     margin: 20px;
     border-radius: 10px;
 }
 
 section img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     width: 50%;
     height: auto;
 }
-
-/* NAVIGATION */
 
 .bar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    height: 50px;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    z-index: 9;
 
-    padding: 12px 30px;
-    background-color: var(--color2); /* dark nav background */
+    background-color: var(--color2);
     color: var(--color4);
+
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .logo {
-    flex: 1;
+    position: absolute;
+    left: 40px; /* fixed distance from left */
 }
 
 .logo a {
-    color: var(--color4); /* light nav text */
+    color: var(--color4);
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
 }
 
 .nav-links {
-    flex: 2;
     display: flex;
-    justify-content: center; /* centers nav links horizontally */
-    gap: 20px;
+    justify-content: center;
+    flex: 1;
 }
 
 .nav-links a {
     color: var(--color4);
     text-decoration: none;
     font-size: 16px;
+    margin: 0 15px;
     transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--color3); /* primary accent */
+    color: var(--color3);
 }
 
 .social-links {
-    flex: 1;
+    position: absolute;
+    right: 40px; /* fixed distance from right */
     display: flex;
-    justify-content: flex-end; /* pushes social icons to far right */
     gap: 16px;
 }
 
 .social-links a {
     color: var(--color4);
-    font-size: 24px;
+    font-size: 20px;
     transition: color 0.3s;
 }
 
@@ -125,6 +126,7 @@ section img {
 }
 
 /* INTRO SECTION */
+
 .intro {
     display: flex;
     align-items: center;
@@ -145,7 +147,7 @@ section img {
     height: 320px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--color2); /* secondary accent */
+    border: 3px solid var(--color2);
 }
 
 .intro-right {
@@ -154,7 +156,7 @@ section img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--color2); /* secondary accent box */
+    background-color: var(--color2);
     text-align: center;
     padding: 60px 40px;
     border-radius: 12px;
@@ -163,7 +165,7 @@ section img {
 .intro-name {
     font-size: 3.2rem;
     margin: 0;
-    color: var(--color4); /* light accent */
+    color: var(--color4);
 }
 
 .intro-text {
@@ -181,7 +183,7 @@ section img {
 .projects h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: var(--color4); /* dark text */
+    color: var(--color4);
 }
 
 .project-grid {
@@ -192,40 +194,132 @@ section img {
 }
 
 .project-card {
-    background-color: var(--color1); /* light background */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: var(--color1);
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.3s ease;
     margin: 10px;
     max-width: 400px;
+    position: relative;
+    transition: transform 1s ease, opacity 1s ease, max-height 0.5s ease;
+    will-change: transform, opacity, max-height;
 }
 
-.project-card:hover {
+.project-card:not(.expanded):hover {
     transform: scale(1.03);
 }
 
-.project-info {
-    padding: 20px;
-    color: var(--color4);
+.project-card.expanded {
+    grid-column: 1 / -1;
+    max-width: 100%;
+    transform: none !important;
+    z-index: 10;
+    padding: 2rem;
+    transition: transform 0.5s ease, opacity 0.5s ease, max-height 0.5s ease;
 }
 
-.project-info h3 {
-    margin-bottom: 10px;
-    margin-top: 0px;
+
+.project-info {
+    padding: 10px;
     color: var(--color4);
+    display: flex;
+    flex-direction: column;
+}
+
+
+.project-info h3 {
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+
+.project-card.expanded .project-info {
+    max-height: 1000px;
+}
+
+.project-card .extra-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+
+.project-card.expanded .extra-content {
+    opacity: 1;
+    max-height: 2000px;
+    padding-top: 1rem;
+}
+
+.project-card::after {
+    content: "Click to see more";
+    display: block;
+    text-align: center;
+    padding: 8px;
+    font-size: 0.9rem;
+    color: var(--color3);
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.project-card.expanded::after {
+    content: "Click to collapse";
 }
 
 .project-links {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
+    margin-top: 15px; /* separate buttons from text */
+    flex-shrink: 0;
 }
+
+/* PROJECT DETAIL */
+
+.project-detail {
+    display: none;
+    position: relative;
+    background-color: var(--color1);
+    color: var(--color4);
+    padding: 40px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.project-detail.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+#project-detail {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+
+#project-detail.active {
+    opacity: 1;
+    max-height: 1000px;
+}
+
+#close-detail {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color4);
+}
+
+/* BUTTONS */
 
 .btn {
     display: inline-block;
     padding: 8px 15px;
-    background: var(--color4); /* dark button background */
+    background: var(--color4);
     color: var(--color1);
     border-radius: 6px;
     text-decoration: none;
@@ -236,7 +330,9 @@ section img {
     background: var(--color2);
 }
 
+
 /* CONTACT */
+
 .contact {
     padding: 10px 60px;
     text-align: center;
@@ -276,4 +372,17 @@ h2 {
 h3 {
     color: var(--color4);
     text-align: left;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
