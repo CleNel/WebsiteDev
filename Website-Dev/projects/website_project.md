@@ -1,4 +1,3 @@
-# Personal Website Development
 
 The goal of this project was to design and build a fully responsive personal portfolio website to showcase my work, projects, and professional background. I wanted the site to serve as both a creative expression and a practical tool for connecting with potential collaborators or employers.
 

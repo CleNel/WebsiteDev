@@ -1,4 +1,3 @@
-### CNN for Image Upsampling
 
 The goal of this project was to build a complete super-resolution pipeline to transform low-resolution generated images into high-resolution outputs suitable for an art display. The existing system uses a pre-trained diffusion model to generate images, but its output resolution (32×32) is far too small for the display requirements.
 
