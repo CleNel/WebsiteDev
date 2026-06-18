@@ -29,21 +29,11 @@ body::before {
     bottom: 0;
     background: url('Other/my-durves-image.png') no-repeat center center;
     background-position: center;
+    background-size: cover;
     z-index: -1;
     opacity: 0.8;
 }
 
-header {
-    text-align: center;
-    padding: 10px;
-}
-
-header img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 10px 0;
-}
 
 section {
     background-color: var(--color2);
@@ -68,7 +58,7 @@ section p {
 section img {
     display: block;
     margin: 0 auto;
-    width: 50%;
+    max-width: 100%;
     height: auto;
 }
 
@@ -139,6 +129,21 @@ section img {
     color: var(--color3);
 }
 
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--color4);
+    color: var(--color4);
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font: inherit;
+}
+
+.theme-toggle:hover {
+    color: var(--color3);
+    border-color: var(--color3);
+}
+
 /* INTRO SECTION */
 
 .intro {
@@ -186,6 +191,119 @@ section img {
     font-size: 1.5rem;
     margin-top: 20px;
     color: var(--color4);
+}
+
+
+/* ABOUT */
+
+.about {
+    padding: 36px 30px;
+}
+
+.about-inner {
+    display: flex;
+    gap: 36px;
+    align-items: flex-start;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.about-text p {
+    margin: 0;
+    line-height: 1.7;
+}
+
+.about-photos {
+    flex: 0 0 320px;
+    position: relative;
+    width: 320px;
+    height: 320px;
+}
+
+.about-photos img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.about-photos img.active {
+    opacity: 1;
+}
+
+.photo-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.2s, background 0.2s;
+}
+
+.about-photos:hover .photo-btn {
+    opacity: 1;
+}
+
+.photo-btn:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.photo-prev { left: 10px; }
+.photo-next { right: 10px; }
+
+.photo-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+}
+
+.photo-dots .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.2s;
+    border: none;
+    padding: 0;
+}
+
+.photo-dots .dot.active {
+    background: rgba(255, 255, 255, 0.95);
+}
+.projects > h2,
+.contact > h2 {
+    padding-bottom: 8px;
+    margin-top: 0;
 }
 
 /* PROJECTS */
@@ -289,46 +407,6 @@ section img {
     flex-shrink: 0;
 }
 
-/* PROJECT DETAIL */
-
-.project-detail {
-    display: none;
-    position: relative;
-    background-color: var(--color1);
-    color: var(--color4);
-    padding: 40px;
-    border-radius: 12px;
-    margin-top: 20px;
-}
-
-.project-detail.active {
-    display: block;
-    animation: fadeIn 0.3s ease;
-}
-
-#project-detail {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.4s ease, max-height 0.4s ease;
-}
-
-#project-detail.active {
-    opacity: 1;
-    max-height: 1000px;
-}
-
-#close-detail {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: var(--color4);
-}
-
 /* BUTTONS */
 
 .btn {
@@ -345,6 +423,18 @@ section img {
     background: var(--color2);
 }
 
+.resume-download {
+    margin-top: 18px;
+}
+
+.project-card img,
+.project-card .extra-content img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
 
 /* CONTACT */
 
@@ -352,6 +442,16 @@ section img {
     padding: 10px 60px;
     text-align: center;
     background-color: var(--color2);
+}
+
+.contact-fallback {
+    margin: 0 0 16px;
+    color: var(--color4);
+}
+
+.contact-fallback a {
+    color: var(--color4);
+    text-decoration: underline;
 }
 
 /* HEADERS */
@@ -370,15 +470,121 @@ h3 {
     text-align: left;
 }
 
-/* ANIMATIONS */
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+@media (max-width: 768px) {
+    .bar {
+        position: sticky;
+        height: auto;
+        padding: 10px 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        top: 0;
     }
-    to {
+
+    .logo {
+        position: static;
+        left: auto;
+    }
+
+    .social-links {
+        position: static;
+        right: auto;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .nav-links {
+        flex-basis: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px;
+        order: 3;
+    }
+
+    .nav-links a {
+        margin: 4px 10px;
+    }
+
+    .intro {
+        flex-direction: column;
+        padding: 40px 16px;
+        gap: 18px;
+    }
+
+    .avatar {
+        width: 180px;
+        height: 180px;
+    }
+
+    .intro-right {
+        width: 100%;
+        padding: 28px 18px;
+    }
+
+    .intro-name {
+        font-size: 2.2rem;
+    }
+
+    .intro-text {
+        font-size: 1.1rem;
+        margin-top: 14px;
+    }
+
+    section {
+        margin: 12px;
+        padding: 12px;
+    }
+
+    .about {
+        padding: 20px 16px;
+    }
+
+    .about-inner {
+        flex-direction: column;
+    }
+
+    .about-text {
+        position: static;
+        flex: none;
+    }
+
+    .about-text h2 {
+        text-align: center;
+    }
+
+    .about-photos {
+        flex: none;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .about-photos img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .project-grid {
+        padding: 0;
+        gap: 14px;
+    }
+
+    .project-card {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .contact {
+        padding: 10px 16px;
+    }
+
+    .projects > h2,
+    .contact > h2 {
+        position: static;
+    }
+
+    .about-photos:hover .photo-btn,
+    .photo-btn {
         opacity: 1;
-        transform: translateY(0);
     }
 }

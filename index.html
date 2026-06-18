@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleomene Nelli - Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://kit.fontawesome.com/0e1dc01f27.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+    <script src="scripts.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAV BAR -->
+    <header class="bar">
+
+        <div class="logo">
+            <a href="#intro">Cleomene Nelli</a>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- Social Links -->
+        <nav class="social-links">
+            <a href="https://github.com/CleNel" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/cleomene-nelli/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <button id="theme-button" class="theme-toggle">Dark Mode</button>
+        </nav>
+    </header>
+
+
+    <!-- INTRODUCTION -->
+    <section id="intro" class="intro">
+        <div class="intro-left">
+            <img src="Other/avatar.jpg" class="avatar" alt="Cleomene Nelli">
+        </div>
+        <div class="intro-right">
+            <h1 class="intro-name">Cleomene Nelli</h1>
+            <p class="intro-text">Computer Engineer | Full-stack Developer | Digital Creator</p>
+            <a class="btn resume-download" href="Other/Cleomene_Nelli_CV.pdf" download>Download Resume</a>
+        </div>
+    </section>
+
+
+    <section id="about" class="about">
+        <div class="about-inner">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>After obtaining my Computer Engineering MEng from Trinity College Dublin, I am now back in Los Angeles and looking for what's next. I've built full-stack apps from the ground up, shipped real code in production at a fintech startup, and picked up valuable insights from my superiors along the way. I care a lot about actually understanding how things work, not just making them run. In my free time, you can find me in the middle of a new personal project or enjoying a nice day on the beach (or both). I also care deeply about where technology is going, and I'm always pushing to stay ahead of it, whether that means picking up new tools, following the latest research, or just building something for the sake of it.</p>
+            </div>
+            <div class="about-photos">
+                <img src="Other/Photos/About-1.jpeg" alt="">
+                <img src="Other/Photos/About-2.JPEG" alt="">
+                <img src="Other/Photos/About-3.jpeg" alt="">
+                <img src="Other/Photos/About-4.JPEG" alt="">
+                <img src="Other/Photos/About-5.jpeg" alt="">
+                <img src="Other/Photos/About-6.jpeg" alt="">
+                <img src="Other/Photos/About-7.jpeg" alt="">
+                <img src="Other/Photos/About-8.JPEG" alt="">
+                <button class="photo-btn photo-prev" aria-label="Previous photo">&#8249;</button>
+                <button class="photo-btn photo-next" aria-label="Next photo">&#8250;</button>
+                <div class="photo-dots" aria-hidden="true"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+
+            <article class="project-card" data-project="website_project">
+                <div class="project-info">
+                    <h3>Personal Website Development</h3>
+                    <p>A responsive personal portfolio website built with HTML, CSS, and JavaScript to showcase my projects and skills</p>
+                    <div class="project-links">
+                        <a href="https://github.com/CleNel/WebsiteDev" target="_blank" rel="noopener noreferrer" class="btn">Github</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card" data-project="upsampling">
+                <div class="project-info">
+                    <h3>CNN for Image Upsampling</h3>
+                    <p>Using TensorFlow and the Keras API, I built a CNN that takes a 32×32 image and upsamples it to 128×128</p>
+                    <img src="projects/Upsampling_Header.png" alt="Upsampling header">
+                </div>
+            </article>
+
+
+            <article class="project-card" data-project="textricate">
+                <div class="project-info">
+                    <h3>Textricate</h3>
+                    <p>A Flask application for previewing PDFs, drawing bounding boxes on them, and extracting text from selected regions</p>
+                    <div class="project-links">
+                        <a href="https://github.com/CleNel/Textricate" target="_blank" rel="noopener noreferrer" class="btn">Github</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card" data-project="airlens">
+                <div class="project-info">
+                    <h3>AirLens</h3>
+                    <p>Real-time air quality dashboard for any US location: live AQI, pollutant breakdown, EPA environmental justice context, 30-day PM2.5 trends, and nearby cleaner air</p>
+                    <div class="project-links">
+                        <a href="https://github.com/CleNel/AirLens" target="_blank" rel="noopener noreferrer" class="btn">Github</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card" data-project="displacemap">
+                <div class="project-info">
+                    <h3>DisplaceMap</h3>
+                    <p>Color-coded map of housing displacement risk across every LA census tract, scored from public ACS, permit, and market data. Click any tract to see why it scored that way.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/CleNel/DisplaceMap" target="_blank" rel="noopener noreferrer" class="btn">Github</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p class="contact-fallback">If the form doesn’t load, please reach out on <a href="https://www.linkedin.com/in/cleomene-nelli/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+        <iframe data-tally-src="https://tally.so/embed/wg2OjN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="379" frameborder="0" marginheight="0" marginwidth="0" title="Contact Me"></iframe>
+        <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+    </section>
+
+
+</body>
+
+</html>
