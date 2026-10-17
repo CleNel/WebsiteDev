@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleomene Nelli - Bookshelf</title>
+    <meta name="robots" content="noindex">
+    <meta name="description" content="Books I've read.">
+
+    <!-- Link previews (filled in on the server by functions/books.js) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cleomene Nelli - Bookshelf">
+    <meta property="og:description" content="Books I've read.">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="">
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="books.css">
+    <script src="https://kit.fontawesome.com/0e1dc01f27.js" crossorigin="anonymous"></script>
+    <script src="scripts.js" defer></script>
+    <script src="books.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAV BAR -->
+    <header class="bar">
+
+        <div class="logo">
+            <a href="index.html">Cleomene Nelli</a>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+
+        <!-- Social Links -->
+        <nav class="social-links">
+            <a href="https://github.com/CleNel" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/cleomene-nelli/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <button id="theme-button" class="theme-toggle">Dark Mode</button>
+        </nav>
+    </header>
+
+
+    <!-- BOOKSHELF -->
+    <section id="books" class="books">
+        <div class="books-header">
+            <div>
+                <h2>Bookshelf</h2>
+                <p class="books-count" id="books-count"></p>
+            </div>
+            <div class="view-toggle" role="group" aria-label="Layout">
+                <button type="button" data-view="list" class="active" aria-pressed="true">
+                    <i class="fas fa-list"></i> List
+                </button>
+                <button type="button" data-view="grid" aria-pressed="false">
+                    <i class="fas fa-th-large"></i> Grid
+                </button>
+            </div>
+        </div>
+
+        <!-- Admin tools: shown only after logging in at /books?admin -->
+        <div class="admin-panel" id="admin-login" hidden>
+            <form id="login-form" class="admin-row">
+                <input type="password" id="login-password" placeholder="Password" autocomplete="current-password" required>
+                <button type="submit" class="btn">Log in</button>
+            </form>
+            <p class="admin-message" id="login-message"></p>
+        </div>
+
+        <div class="admin-panel" id="admin-tools" hidden>
+            <form id="lookup-form" class="admin-row">
+                <input type="text" id="lookup-isbn" placeholder="ISBN (10 or 13 digits)" inputmode="numeric" required>
+                <button type="submit" class="btn">Add book</button>
+                <button type="button" class="btn btn-quiet" id="logout-button">Log out</button>
+            </form>
+            <p class="admin-message" id="lookup-message"></p>
+        </div>
+
+        <p class="books-status" id="books-status">Loading books…</p>
+
+        <div id="reading-section" hidden>
+            <h3 class="shelf-label">Currently reading</h3>
+            <div class="book-shelf list-view" id="reading-shelf"></div>
+            <h3 class="shelf-label" id="read-label">Finished</h3>
+        </div>
+
+        <div class="book-shelf list-view" id="read-shelf"></div>
+    </section>
+
+
+    <!-- ADD / EDIT BOOK -->
+    <dialog class="book-editor" id="book-editor">
+        <form id="editor-form" method="dialog">
+            <h3 id="editor-title">Add book</h3>
+            <p class="admin-message" id="editor-notice"></p>
+
+            <div class="editor-layout">
+                <div class="editor-cover">
+                    <img id="editor-cover-preview" alt="">
+                    <span id="editor-cover-empty">No cover</span>
+                </div>
+
+                <div class="editor-fields">
+                    <label>Title <input name="title" required></label>
+                    <label>Author(s) <input name="authors"></label>
+                    <div class="editor-row">
+                        <label>Year <input name="published_year" inputmode="numeric"></label>
+                        <label>Pages <input name="page_count" type="number" min="1"></label>
+                    </div>
+                    <label>Publisher <input name="publisher"></label>
+                    <label>ISBN <input name="isbn" readonly></label>
+                </div>
+            </div>
+
+            <label>Cover image URL <input name="cover_url" type="url" placeholder="https://…"></label>
+            <label>Short description <textarea name="description" rows="5"></textarea></label>
+
+            <div class="editor-row">
+                <label>Status
+                    <select name="status">
+                        <option value="read">Finished</option>
+                        <option value="reading">Currently reading</option>
+                    </select>
+                </label>
+                <label>Month finished <input name="finished" type="month"></label>
+            </div>
+
+            <div class="editor-actions">
+                <button type="button" class="btn btn-quiet" id="editor-cancel">Cancel</button>
+                <button type="submit" class="btn" id="editor-save">Save</button>
+            </div>
+        </form>
+    </dialog>
+
+</body>
+
+</html>
